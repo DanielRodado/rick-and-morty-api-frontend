@@ -1,0 +1,122 @@
+:root {
+    --color-gray: #9e9e9e;
+    --select-text-color: #ff9800;
+}
+
+.card {
+    background-color: #3c3e44;
+    width: 100%;
+    margin: 0.75rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.card__header {
+    height: 18rem;
+}
+
+.card__header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__body {
+    padding: 0.75rem;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card__body {
+    font-size: 1.2em;
+}
+
+.card__body-section {
+    display: flex;
+    flex-direction: column;
+}
+
+h2.card__body-text {
+    font-weight: 900;
+}
+
+.card__body-status {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    text-transform: capitalize;
+    user-select: none;
+}
+
+.status__icon {
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 0.375rem;
+    border-radius: 50%;
+}
+
+.status-alive {
+    background: #55cc44;
+}
+
+.status-unknown {
+    background: var(--color-gray);
+}
+
+.status-dead {
+    background: #f00000;
+}
+
+.card__body-text-gray {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+:is(.card__body-location, .card__body-number-of-residents) a {
+    color: #fff;
+    text-decoration: none;
+}
+
+:is(.card__body-location, .card__body-number-of-residents) a {
+    transition: color 500ms ease-out;
+}
+
+:is(.card__body-location, .card__body-number-of-residents) a:hover {
+    color: var(--select-text-color);
+}
+
+@media only screen and (width > 650px) {
+    .card {
+        width: 37.5rem;
+        height: 14.25rem;
+        display: flex;
+    }
+    
+    .card--location {
+        height: fit-content;
+        width: 30.5rem;
+    }
+
+    .card__header {
+        min-width: 14rem;
+        height: auto;
+    }
+
+    .card__body {
+        padding: 0.85rem;
+        flex-grow: 1;
+    }
+
+    .card__body-section p {
+        text-wrap: nowrap;
+    }
+
+    h2.card__body-text {
+        text-wrap: nowrap;
+    }
+    
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Locations</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../../css/card.css" />
+        <link rel="stylesheet" href="../../css/loader.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul class="list-items list-items--V2">
+                    <li class="item"><a href="../../index.html" class="link-item">Characters</a></li>
+                    <li class="item item-active">Locations</li>
+                    <li class="item"><a href="../../assets/pages/episodes.html" class="link-item">Episodes</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main id="app">
+            <section class="title-section">
+                <h1 class="main-title">The Rick and Morty</h1>
+                <h3 class="main-subtitle">Locations</h3>
+            </section>
+            <section class="main-section">
+                <div class="loader" v-if="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-cards" v-else v-cloak>
+                    <article class="card card--location" v-for="location of locations">
+                        <div class="card__body">
+                            <div class="card__body-section">
+                                <h2 class="card__body-text">
+                                    {{location.name}}
+                                </h2>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Type:
+                                </p>
+                                <p>{{location.type}}</p>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Dimension:
+                                </p>
+                                <p>{{location.dimension}}</p>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Number of Residents:
+                                </p>
+                                <p v-if="location.residents.length === 0">{{location.residents.length}}</p>
+                                <p v-else class="card__body-number-of-residents"><a :href=`./residents.html?location=${location.id}`>{{location.residents.length}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="container-buttons" v-if="!loader" v-cloak>
+                    <button class="btn btn-prev" type="button" :disabled="urlPrev === null" @click="prevPage"></button>
+                    <p class="number-of-page">{{page}}</p>
+                    <button class="btn btn-next" type="button" :disabled="urlNext === null" @click="nextPage"></button>
+                </div>
+            </section>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="../../js/locations.js"></script>
+    </body>
+</html>

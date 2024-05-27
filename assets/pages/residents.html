@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resident</title>
+        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../../css/card.css" />
+        <link rel="stylesheet" href="../../css/loader.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul class="list-items list-items--V2">
+                    <li class="item"><a href="../../index.html" class="link-item">Characters</a></li>
+                    <li class="item"><a href="../../assets/pages/locations.html" class="link-item">Locations</a></li>
+                    <li class="item"><a href="../../assets/pages/episodes.html" class="link-item">Episodes</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="app">
+            <section class="title-section">
+                <h1 class="main-title">The Rick and Morty</h1>
+                <h3 v-if="characters.length >= 2" class="main-subtitle">Residents <span v-cloak>{{locationName}}</span></h3>
+                <h3 v-else class="main-subtitle">Resident <span v-cloak>{{locationName}}</span></h3>
+            </section>
+            <section class="main-section">
+                <div class="loader" v-if="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-cards" v-else v-cloak>
+                    <article class="card" v-for="character of characters">
+                        <div class="card__header">
+                            <img :src="character.image" :alt="character.name" />
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-section">
+                                <h2 class="card__body-text">
+                                    {{character.name}}
+                                </h2>
+                                <p class="card__body-status">
+                                    <span
+                                        class="status__icon"
+                                        :class="{'status-alive': character.status === 'Alive', 'status-unknown': character.status === 'unknown', 'status-dead': character.status === 'Dead'}"
+                                    ></span>
+                                    {{character.status}} - {{character.species}}
+                                </p>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Last known location:
+                                </p>
+                                <p>{{character.location.name}}</p>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    First seen in:
+                                </p>
+                                <p>{{character.nameOfEpisode}}</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-a-icons">
+                <i class="bi bi-github"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-linkedin"></i>
+            </div>
+            <p class="footer-author">
+                ❮❯ by
+                <span class="footer-span-decorated">Daniel Rodado</span> 2024
+            </p>
+            <p class="footer-credits">
+                Page inspired by
+                <span class="footer-span-decorated"
+                    ><a
+                        href="https://rickandmortyapi.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >The Rick and Morty API</a
+                    ></span
+                >
+            </p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="../../js/residents.js"></script>
+    </body>
+</html>

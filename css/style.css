@@ -1,0 +1,269 @@
+:root {
+    --main-color: #272b33;
+    --second-color: #202329;
+    --select-text-color: #ff9800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*::selection {
+    color: var(--select-text-color);
+    background-color: var(--second-color);
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header*/
+
+.nav {
+    padding: 0.8rem;
+    border-bottom: 1px solid #2e293314;
+}
+
+.list-items {
+    display: flex;
+    list-style-type: none;
+    justify-content: end;
+    align-items: center;
+    gap: 2rem;
+}
+
+.list-items--V2 {
+    justify-content: space-evenly;
+}
+
+.list-items .item {
+    font-weight: 700;
+}
+
+.list-items .item-active {
+    color: var(--select-text-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+.list-items .item .link-item {
+    transition: color 300ms ease-out;
+    color: var(--second-color);
+}
+
+.list-items .item .link-item:hover {
+    color: var(--select-text-color);
+}
+
+/* Header */
+
+/* Title secction */
+
+.title-section {
+    margin: 2rem 0;
+    padding: 0 1.25rem;
+    text-align: center;
+}
+
+.main-title {
+    color: var(--second-color);
+    font-weight: 900;
+    font-size: 3.125rem;
+    text-wrap: balance;
+}
+
+.main-subtitle {
+    color: var(--main-color);
+    font-weight: 900;
+    font-size: 2rem;
+    border-top: 2px dashed #ccc;
+    margin-top: 0.7rem;
+    text-wrap: balance;
+}
+
+/* Title secction */
+
+/* Main Section */
+
+.main-section {
+    position: relative;
+    flex-grow: 1;
+    background-color: var(--main-color);
+    padding: 1.5rem;
+    display: grid;
+    place-content: center;
+}
+
+.container-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1920px;
+}
+
+.container-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.btn {
+    position: relative;
+    border: none;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
+.btn:active:not(:disabled) {
+    transition: all 50ms ease-in;
+    scale: 0.9;
+}
+
+.btn:disabled {
+    cursor: no-drop;
+}
+
+.btn-prev::after {
+    content: "❮";
+    font-size: 2rem;
+    position: absolute;
+    top: 6px;
+    left: -4px;
+    right: 0;
+}
+
+.btn-next::after {
+    content: "❯";
+    font-size: 2rem;
+    position: absolute;
+    top: 6px;
+    left: 2px;
+    right: 0;
+}
+
+.number-of-page {
+    color: #fff;
+    font-weight: 900;
+    font-size: 2rem;
+    user-select: none;
+}
+
+/* Main Section */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background: rgb(32, 35, 41);
+    color: rgb(158, 158, 158);
+    padding: 4.5rem 0px;
+    min-height: 7.5rem;
+    width: 100%;
+}
+
+.footer-a-icons {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.footer-author {
+    margin-top: 1rem;
+}
+
+.footer-span-decorated {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 1px solid var(--select-text-color);
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+}
+
+.footer-span-decorated:hover {
+    border-bottom: none;
+    color: var(--select-text-color) !important;
+}
+
+.footer-credits {
+    margin-top: 2rem;
+}
+
+.footer-credits span a {
+    color: #fff !important;
+}
+
+@media only screen and (width > 650px) {
+    .nav {
+        padding: 1rem;
+        border: none;
+    }
+
+    .list-items .item {
+        font-size: 1.1rem;
+    }
+
+    .list-items--V2 {
+        justify-content: end;
+    }
+
+    .main-title {
+        font-size: 3.75rem;
+    }
+
+    .main-subtitle {
+        font-size: 2.2rem;
+        margin-inline: auto;
+        width: 75%;
+    }
+
+    .main-section {
+        padding: 4.5rem 0px;
+    }
+}
+
+@media only screen and (width > 890px) {
+    .list-items {
+        gap: 2.5rem;
+    }
+
+    .list-items .item {
+        font-size: 1.3rem;
+    }
+
+    .main-title {
+        font-size: 5.625rem;
+        text-wrap: nowrap;
+    }
+
+    .main-subtitle {
+        font-size: 2.6rem;
+        width: 90%;
+        text-wrap: pretty;
+    }
+}
+
+@media only screen and (width >= 1088px) {
+    .main-subtitle {
+        text-wrap: balance;
+    }
+}
+
+[v-cloak] {
+    display: none;
+}
