@@ -58,9 +58,9 @@
                             </div>
                             <div class="card__body-section">
                                 <p class="card__body-text-gray">
-                                    Last known location:
+                                    Gender:
                                 </p>
-                                <p>{{character.location.name}}</p>
+                                <p>{{character.gender}} <i :class="{'bi bi-gender-male': character.gender === 'Male', 'bi bi-gender-female': character.gender === 'Female'}"></i></p>
                             </div>
                             <div class="card__body-section">
                                 <p class="card__body-text-gray">
