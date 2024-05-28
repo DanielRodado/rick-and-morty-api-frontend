@@ -5,11 +5,118 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Episodes</title>
         <link rel="shortcut icon" href="../img/icon-rick-sanchez.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../../css/style.css" />
         <link rel="stylesheet" href="../../css/card.css" />
         <link rel="stylesheet" href="../../css/loader.css" />
     </head>
-    <body style="height: 100dvh; display: grid; place-content: center;">
-        <h1 style="user-select: none; font-weight: 900;">Page Under Development :)</h1>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul class="list-items list-items--V2">
+                    <li class="item"><a href="../../index.html" class="link-item">Characters</a></li>
+                    <li class="item"><a href="../../assets/pages/locations.html" class="link-item">Locations</a></li>
+                    <li class="item item-active">Episodes</li>
+                </ul>
+            </nav>
+        </header>
+        <main id="app">
+            <section class="title-section">
+                <h1 class="main-title">The Rick and Morty</h1>
+                <h3 class="main-subtitle">Episodes</h3>
+            </section>
+            <section class="main-section">
+                <div class="loader" v-if="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-cards" v-else v-cloak>
+                    <article class="card card--location" v-for="episode of episodes">
+                        <div class="card__body">
+                            <div class="card__body-section">
+                                <h2 class="card__body-text">
+                                    {{episode.name}}
+                                </h2>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Air Date:
+                                </p>
+                                <p>{{episode.air_date}}</p>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Episode:
+                                </p>
+                                <p>{{episode.episode}}</p>
+                            </div>
+                            <div class="card__body-section">
+                                <p class="card__body-text-gray">
+                                    Number of Residents:
+                                </p>
+                                <p v-if="episode.characters.length === 0">{{episode.characters.length}}</p>
+                                <p v-else class="card__body-number-of-characters"><a :href=`./characters.html?episode=${episode.id}`>{{episode.characters.length}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="container-buttons" v-if="!loader" v-cloak>
+                    <button class="btn btn-prev" type="button" :disabled="urlPrev === null" @click="prevPage"></button>
+                    <p class="number-of-page">{{page}}</p>
+                    <button class="btn btn-next" type="button" :disabled="urlNext === null" @click="nextPage"></button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-a-icons">
+                <a 
+                    class="footer-a-icons__item"
+                    href="https://github.com/DanielRodado"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a 
+                    class="footer-a-icons__item"
+                    href="https://x.com/daniel_rodado"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a 
+                    class="footer-a-icons__item"
+                    href="https://www.linkedin.com/in/daniel-rodado-b24432210/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </div>
+            <p class="footer-author">
+                ❮❯ by
+                <span class="footer-span-decorated">Daniel Rodado</span> 2024
+            </p>
+            <p class="footer-credits">
+                Page inspired by
+                    ><a
+                        class="footer-span-decorated"
+                        href="https://rickandmortyapi.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >The Rick and Morty API</a
+                    >
+                >
+            </p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="../../js/episodes.js"></script>
     </body>
 </html>

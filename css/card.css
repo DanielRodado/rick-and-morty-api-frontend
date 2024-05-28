@@ -76,16 +76,13 @@ h2.card__body-text {
     user-select: none;
 }
 
-:is(.card__body-location, .card__body-number-of-residents) a {
+:is(.card__body-location, .card__body-number-of-residents, .card__body-number-of-characters) a {
+    transition: color 500ms ease-out;
     color: #fff;
     text-decoration: none;
 }
 
-:is(.card__body-location, .card__body-number-of-residents) a {
-    transition: color 500ms ease-out;
-}
-
-:is(.card__body-location, .card__body-number-of-residents) a:hover {
+:is(.card__body-location, .card__body-number-of-residents, .card__body-number-of-characters) a:hover {
     color: var(--select-text-color);
 }
 
