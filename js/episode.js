@@ -52,9 +52,12 @@ createApp({
                 new URLSearchParams(document.location.search).get("episode")
             );
         },
+        windowsTopFirst() {
+            this.checkVisibilityCards ? this.windowsTop() : null;
+        },
         windowsTop() {
             scrollTo({
-                top: 0,
+                top: 50,
                 behavior: "smooth",
             });
         },

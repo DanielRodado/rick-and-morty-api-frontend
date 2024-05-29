@@ -337,6 +337,16 @@ footer {
         font-size: 1.04rem;
         font-weight: bold;
     }
+
+    .show-cards {
+        font-size: 1.04rem;
+    }
+
+    .show-cards-text::before,
+    .show-cards-text::after {
+        content: " - - - - - ";
+    }
+
 }
 
 @media only screen and (width > 890px) {
@@ -376,11 +386,23 @@ footer {
         font-size: 1.2rem;
     }
 
+    .show-cards {
+        font-size: 1.08rem;
+    }
+
+    .show-cards-text::before,
+    .show-cards-text::after {
+        content: " - - - - - - - ";
+    }
 }
 
 @media only screen and (width >= 1088px) {
     .main-subtitle {
         text-wrap: balance;
+    }
+
+    .main-section-details {
+        display: block;
     }
 }
 

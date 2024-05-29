@@ -57,7 +57,7 @@
                             <p class="details-episode__item-text">{{episode.characters.length}}</p>
                         </div>
                     </div>
-                    <div class="show-cards" :class="{'show-cards-mb': checkVisibilityCards}" v-if="episode.characters.length >= 1">
+                    <div @click="windowsTopFirst" class="show-cards" :class="{'show-cards-mb': checkVisibilityCards}" v-if="episode.characters.length >= 1">
                         <label>
                             <span class="show-cards-text">{{checkVisibilityCards ? "Hide Characters" : "Show Characters"}}</span>
                             <input type="checkbox" name="check-visibility" v-model="checkVisibilityCards">
@@ -97,7 +97,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="show-cards" :class="{'show-cards-mb': checkVisibilityCards, 'show-cards-mt': checkVisibilityCards}" v-if="episode.characters.length >= 1 && checkVisibilityCards">
+                    <div class="show-cards" :class="{'show-cards-mt': checkVisibilityCards}" v-if="episode.characters.length >= 1 && checkVisibilityCards">
                         <label @click="windowsTop">
                             <span class="show-cards-text">Hide Characters</span>
                             <input type="checkbox" name="check-visibility" v-model="checkVisibilityCards">
