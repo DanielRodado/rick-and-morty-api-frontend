@@ -328,6 +328,15 @@ footer {
         grid-template-columns: repeat(2, minmax(300px, 400px));
         grid-template-rows: repeat(2, 1fr);
     }
+
+    .details-episode__item-title {
+        font-size: 1.3rem;
+    }
+
+    .details-episode__item-text {
+        font-size: 1.04rem;
+        font-weight: bold;
+    }
 }
 
 @media only screen and (width > 890px) {
@@ -348,6 +357,23 @@ footer {
         font-size: 2.6rem;
         width: 90%;
         text-wrap: pretty;
+    }
+
+    .details-episode {
+        grid-template-rows: repeat(2, 6.375rem);
+    }
+
+    .details-episode__item {
+        display: grid;
+        place-content: center;
+    }
+
+    .details-episode__item-title {
+        font-size: 1.8rem;
+    }
+
+    .details-episode__item-text {
+        font-size: 1.2rem;
     }
 
 }
