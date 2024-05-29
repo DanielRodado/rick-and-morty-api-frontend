@@ -346,7 +346,6 @@ footer {
     .show-cards-text::after {
         content: " - - - - - ";
     }
-
 }
 
 @media only screen and (width > 890px) {
@@ -359,7 +358,7 @@ footer {
     }
 
     .main-title {
-        font-size: 5.625rem;
+        font-size: 5.25rem;
         text-wrap: nowrap;
     }
 
@@ -393,6 +392,12 @@ footer {
     .show-cards-text::before,
     .show-cards-text::after {
         content: " - - - - - - - ";
+    }
+}
+
+@media only screen and (width >= 910px) {
+    .main-title {
+        font-size: 5.625rem;
     }
 }
 
