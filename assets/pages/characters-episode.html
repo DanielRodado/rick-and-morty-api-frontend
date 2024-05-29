@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Episodes</title>
+        <title>Characters | Episodes</title>
         <link rel="shortcut icon" href="../img/icon-rick-sanchez.png" type="image/x-icon">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../../css/style.css" />
@@ -16,14 +16,15 @@
                 <ul class="list-items list-items--V2">
                     <li class="item"><a href="../../index.html" class="link-item">Characters</a></li>
                     <li class="item"><a href="../../assets/pages/locations.html" class="link-item">Locations</a></li>
-                    <li class="item item-active">Episodes</li>
+                    <li class="item"><a href="../../assets/pages/episodes.html" class="link-item">Episodes</a></li>
                 </ul>
             </nav>
         </header>
         <main id="app">
             <section class="title-section">
                 <h1 class="main-title">The Rick and Morty</h1>
-                <h3 class="main-subtitle">Episodes</h3>
+                <h3 v-if="characters.length >= 2" class="main-subtitle">Characters <span v-cloak>{{episodeName}}</span></h3>
+                <h3 v-else class="main-subtitle">Character <span v-cloak>{{episodeName}}</span></h3>
             </section>
             <section class="main-section">
                 <div class="loader" v-if="loader">
@@ -39,39 +40,38 @@
                     <div></div>
                 </div>
                 <div class="container-cards" v-else v-cloak>
-                    <article class="card card--location" v-for="episode of episodes">
+                    <article class="card" v-for="character of characters">
+                        <div class="card__header">
+                            <img :src="character.image" :alt="character.name" />
+                        </div>
                         <div class="card__body">
                             <div class="card__body-section">
                                 <h2 class="card__body-text">
-                                    {{episode.name}}
+                                    {{character.name}}
                                 </h2>
+                                <p class="card__body-status">
+                                    <span
+                                        class="status__icon"
+                                        :class="{'status-alive': character.status === 'Alive', 'status-unknown': character.status === 'unknown', 'status-dead': character.status === 'Dead'}"
+                                    ></span>
+                                    {{character.status}} - {{character.species}}
+                                </p>
                             </div>
                             <div class="card__body-section">
                                 <p class="card__body-text-gray">
-                                    Air Date:
+                                    Last known location:
                                 </p>
-                                <p>{{episode.air_date}}</p>
+                                <p v-if="character.location.name !== 'unknown'" class="card__body-location"><a :href=`./residents.html?location=${character.location.url.slice(character.location.url.lastIndexOf("/")).slice(1)}`>{{character.location.name}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                                <p v-else class="card__body-location">{{character.location.name}}</p>
                             </div>
                             <div class="card__body-section">
                                 <p class="card__body-text-gray">
-                                    Episode:
+                                    First seen in:
                                 </p>
-                                <p>{{episode.episode}}</p>
-                            </div>
-                            <div class="card__body-section">
-                                <p class="card__body-text-gray">
-                                    Number of Residents:
-                                </p>
-                                <p v-if="episode.characters.length === 0">{{episode.characters.length}}</p>
-                                <p v-else class="card__body-number-of-characters"><a :href=`./characters-episode.html?episode=${episode.id}`>{{episode.characters.length}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                                <p>{{character.nameOfEpisode}}</p>
                             </div>
                         </div>
                     </article>
-                </div>
-                <div class="container-buttons" v-if="!loader" v-cloak>
-                    <button class="btn btn-prev" type="button" :disabled="urlPrev === null" @click="prevPage"></button>
-                    <p class="number-of-page">{{page}}</p>
-                    <button class="btn btn-next" type="button" :disabled="urlNext === null" @click="nextPage"></button>
                 </div>
             </section>
         </main>
@@ -105,18 +105,17 @@
             </p>
             <p class="footer-credits">
                 Page inspired by
-                    ><a
+                    <a
                         class="footer-span-decorated"
                         href="https://rickandmortyapi.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >The Rick and Morty API</a
-                    >
-                >
+                        >The Rick and Morty API
+                    </a>
             </p>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="../../js/episodes.js"></script>
+        <script src="../../js/characters-episode.js"></script>
     </body>
 </html>
