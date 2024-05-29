@@ -10,8 +10,136 @@
         <link rel="stylesheet" href="../../css/card.css" />
         <link rel="stylesheet" href="../../css/loader.css" />
     </head>
-    <body style="height: 100dvh; display: grid; place-content: center;">
-        <h1 style="font-weight: 900;">This page will show details of episodes, including the characters that appear.</h1>
-        <h3 style="font-weight: 700; text-align: center; margin-top: 0.5rem;">But for the moment it is in development :)</h3>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul class="list-items list-items--V2">
+                    <li class="item"><a href="../../index.html" class="link-item">Characters</a></li>
+                    <li class="item"><a href="../../assets/pages/locations.html" class="link-item">Locations</a></li>
+                    <li class="item"><a href="../../assets/pages/episodes.html" class="link-item">Episodes</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="app">
+            <section class="title-section">
+                <h1 class="main-title">The Rick and Morty</h1>
+                <h3 class="main-subtitle">Details of Episode</h3>
+            </section>
+            <section class="main-section-details">
+                <div class="loader" v-if="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="container-episode-details" v-else v-cloak>
+                    <div class="details-episode">
+                        <div class="details-episode__item">
+                            <h3 class="details-episode__item-title">Name</h3>
+                            <p class="details-episode__item-text">{{episode.name}}</p>
+                        </div>
+                        <div class="details-episode__item">
+                            <h3 class="details-episode__item-title">Air Date</h3>
+                            <p class="details-episode__item-text">{{episode.air_date}}</p>
+                        </div>
+                        <div class="details-episode__item">
+                            <h3 class="details-episode__item-title">Episode</h3>
+                            <p class="details-episode__item-text">{{episode.episode}}</p>
+                        </div>
+                        <div class="details-episode__item">
+                            <h3 class="details-episode__item-title">Number of Characters</h3>
+                            <p class="details-episode__item-text">{{episode.characters.length}}</p>
+                        </div>
+                    </div>
+                    <div class="show-cards" :class="{'show-cards-mb': checkVisibilityCards}" v-if="episode.characters.length >= 1">
+                        <label>
+                            <span class="show-cards-text">{{checkVisibilityCards ? "Hide Characters" : "Show Characters"}}</span>
+                            <input type="checkbox" name="check-visibility" v-model="checkVisibilityCards">
+                        </label>
+                    </div>
+                    <div class="container-cards" v-if="checkVisibilityCards">
+                        <article class="card" v-for="character of characters">
+                            <div class="card__header">
+                                <img :src="character.image" :alt="character.name" />
+                            </div>
+                            <div class="card__body">
+                                <div class="card__body-section">
+                                    <h2 class="card__body-text">
+                                        {{character.name}}
+                                    </h2>
+                                    <p class="card__body-status">
+                                        <span
+                                            class="status__icon"
+                                            :class="{'status-alive': character.status === 'Alive', 'status-unknown': character.status === 'unknown', 'status-dead': character.status === 'Dead'}"
+                                        ></span>
+                                        {{character.status}} - {{character.species}}
+                                    </p>
+                                </div>
+                                <div class="card__body-section">
+                                    <p class="card__body-text-gray">
+                                        Last known location:
+                                    </p>
+                                    <p v-if="character.location.name !== 'unknown'" class="card__body-location"><a :href=`./residents.html?location=${character.location.url.slice(character.location.url.lastIndexOf("/")).slice(1)}`>{{character.location.name}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                                    <p v-else class="card__body-location">{{character.location.name}}</p>
+                                </div>
+                                <div class="card__body-section">
+                                    <p class="card__body-text-gray">
+                                        First seen in:
+                                    </p>
+                                    <p>{{character.nameOfEpisode}}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="show-cards" :class="{'show-cards-mb': checkVisibilityCards, 'show-cards-mt': checkVisibilityCards}" v-if="episode.characters.length >= 1 && checkVisibilityCards">
+                        <label @click="windowsTop">
+                            <span class="show-cards-text">Hide Characters</span>
+                            <input type="checkbox" name="check-visibility" v-model="checkVisibilityCards">
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-a-icons">
+                <a 
+                    class="footer-a-icons__item"
+                    href="https://github.com/DanielRodado"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a 
+                    class="footer-a-icons__item"
+                    href="https://www.linkedin.com/in/daniel-rodado-b24432210/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </div>
+            <p class="footer-author">
+                ❮❯ by
+                <span class="footer-span-decorated">Daniel Rodado</span> 2024
+            </p>
+            <p class="footer-credits">
+                Page inspired by
+                    <a
+                        class="footer-span-decorated"
+                        href="https://rickandmortyapi.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >The Rick and Morty API
+                    </a>
+            </p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="../../js/episode.js"></script>
     </body>
 </html>

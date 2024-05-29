@@ -104,6 +104,75 @@ a {
     place-content: center;
 }
 
+.main-section-details {
+    position: relative;
+    flex-grow: 1;
+    background-color: var(--main-color);
+    padding: 1.5rem;
+}
+
+.container-episode-details {
+    width: 100%;
+    max-width: 1920px;
+}
+
+.details-episode {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 5rem);
+    gap: 1rem;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.details-episode__item {
+    width: 100%;
+    background-color: #3c3e44;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    box-shadow: 0 3px 0.2rem #aaa;
+}
+
+.details-episode__item-title {
+    font-weight: 800;
+    color: #9e9e9e;
+    margin-bottom: 0.4rem;
+}
+
+.details-episode__item-text {
+    color: #fff;
+}
+
+.show-cards {
+    text-align: center;
+    user-select: none;
+}
+
+.show-cards-mt {
+    margin-top: 3rem;
+}
+
+.show-cards-mb {
+    margin-bottom: 3rem;
+}
+
+.show-cards-text {
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.show-cards-text::before,
+.show-cards-text::after {
+    content: " - - - - ";
+}
+
+.show-cards label input[type="checkbox"] {
+    visibility: hidden;
+}
+
 .container-cards {
     display: flex;
     justify-content: center;
@@ -220,8 +289,6 @@ footer {
     color: var(--select-text-color);
 }
 
-
-
 /* Footer */
 
 @media only screen and (width > 650px) {
@@ -251,6 +318,16 @@ footer {
     .main-section {
         padding: 4.5rem 0px;
     }
+
+    .main-section-details {
+        display: flex;
+        align-items: center;
+    }
+
+    .details-episode {
+        grid-template-columns: repeat(2, minmax(300px, 400px));
+        grid-template-rows: repeat(2, 1fr);
+    }
 }
 
 @media only screen and (width > 890px) {
@@ -272,6 +349,7 @@ footer {
         width: 90%;
         text-wrap: pretty;
     }
+
 }
 
 @media only screen and (width >= 1088px) {
