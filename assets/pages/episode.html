@@ -92,7 +92,8 @@
                                     <p class="card__body-text-gray">
                                         First seen in:
                                     </p>
-                                    <p class="card__body-episode"><a :href=`./episode.html?episode=${character.episode[0].slice(character.episode[0].lastIndexOf("/")).slice(1)}`>{{character.nameOfEpisode}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                                    <p v-if="character.episode[0].slice(character.episode[0].lastIndexOf('/')).slice(1) == idEpisode">{{character.nameOfEpisode}} <span style="font-weight: bold;">(This)</span></p>
+                                    <p v-else class="card__body-episode"><a :href=`./episode.html?episode=${character.episode[0].slice(character.episode[0].lastIndexOf("/")).slice(1)}`>{{character.nameOfEpisode}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
                             </div>
                             </div>
                         </article>
