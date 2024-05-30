@@ -23,7 +23,7 @@
         <main id="app">
             <section class="title-section">
                 <h1 class="main-title">The Rick and Morty</h1>
-                <h3 class="main-subtitle">Details of Episode</h3>
+                <h3 class="main-subtitle">Episode Details</h3>
             </section>
             <section class="main-section-details">
                 <div class="loader" v-if="loader">
@@ -92,8 +92,8 @@
                                     <p class="card__body-text-gray">
                                         First seen in:
                                     </p>
-                                    <p>{{character.nameOfEpisode}}</p>
-                                </div>
+                                    <p class="card__body-episode"><a :href=`./episode.html?episode=${character.episode[0].slice(character.episode[0].lastIndexOf("/")).slice(1)}`>{{character.nameOfEpisode}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                            </div>
                             </div>
                         </article>
                     </div>
