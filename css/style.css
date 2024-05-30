@@ -37,13 +37,9 @@ a {
 .list-items {
     display: flex;
     list-style-type: none;
-    justify-content: end;
+    justify-content: space-evenly;
     align-items: center;
     gap: 2rem;
-}
-
-.list-items--V2 {
-    justify-content: space-evenly;
 }
 
 .list-items .item {
@@ -54,6 +50,10 @@ a {
     color: var(--select-text-color);
     user-select: none;
     cursor: pointer;
+}
+
+.list-items .item-active:first-child {
+    visibility: hidden;
 }
 
 .list-items .item .link-item {
@@ -304,12 +304,12 @@ footer {
         border: none;
     }
 
-    .list-items .item {
-        font-size: 1.1rem;
+    .list-items {
+        justify-content: end;
     }
 
-    .list-items--V2 {
-        justify-content: end;
+    .list-items .item {
+        font-size: 1.1rem;
     }
 
     .main-title {
