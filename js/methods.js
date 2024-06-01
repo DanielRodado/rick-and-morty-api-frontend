@@ -1,14 +1,14 @@
 "use strict";
 
-export const random = () => {
+export const randomNumber = () => {
     return Math.floor(Math.random() * 2);
 };
 
-const createImg = (obj) => {
-    return `<img src="${obj.src}" alt="${obj.alt}">`;
+const createImg = (image) => {
+    return `<img src="${image.src}" alt="${image.alt}">`;
 };
 
-export const printImg = ($HTMLElement, obj) => {
-    $HTMLElement.innerHTML += createImg(obj.black);
-    $HTMLElement.innerHTML += createImg(obj.color);
+export const printImg = ($HTMLElement, image) => {
+    $HTMLElement.innerHTML += createImg(image.black);
+    $HTMLElement.innerHTML += createImg(image.color);
 };

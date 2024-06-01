@@ -1,10 +1,10 @@
 "use strict";
 
 import { rick, morty } from "./infomation.js";
-import { random, printImg } from "./methods.js";
+import { randomNumber, printImg } from "./methods.js";
 
 const $containerImg = document.getElementById("pictures");
 
 const InfoImages = [rick, morty];
 
-printImg($containerImg, InfoImages[random()]);
+printImg($containerImg, InfoImages[randomNumber()]);
