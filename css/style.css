@@ -118,6 +118,167 @@ a {
 
 /* Title secction */
 
+
+/* Home */
+
+.section {
+    max-width: 1920px;
+    padding: 1.5rem;
+}
+
+/* Introduction Section */
+
+.introduction-section {
+    background-color: var(--main-color);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.introduction-section__text {
+    text-align: center;
+    text-wrap: pretty;
+}
+
+.introduction-section__text h2 {
+    margin-bottom: 0.4rem;
+}
+
+.btn-section {
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 2px solid #fff;
+    transition: all 300ms ease-out;
+}
+
+.btn-section:hover {
+    background-color: #fff;
+    color: #000;
+
+}
+
+/* Introduction Section */
+
+/* Characteristics Section */
+
+.characteristics-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.characteristics-section__item {
+    width: 100%;
+    color: #fff;
+    background-color: #272b33;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    min-height: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.characteristics-section__item-text {
+    text-align: center;
+}
+
+.characteristics-section__item  i {
+    font-size: 1.9rem;
+}
+
+.characteristics-section__item-description {
+    text-wrap: pretty;
+}
+
+/* Characteristics Section */
+
+/* characters Gallery Section */
+
+.characters-gallery-section {
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.characters-gallery-section__characters {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 10rem);
+    gap: 1rem;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.section-title {
+    color: #fff;
+}
+
+.characters-gallery-section__characters-item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+}
+
+.characters-gallery-section__characters-item:first-child {
+    background: linear-gradient(#0006, #0009), url(../assets/img/rick.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.characters-gallery-section__characters-item:nth-child(2) {
+    background: linear-gradient(#0006, #0009), url(../assets/img/morty.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.characters-gallery-section__characters-item:nth-child(3) {
+    background: linear-gradient(#0006, #0009), url(../assets/img/summer-smith.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.characters-gallery-section__characters-item:nth-child(4) {
+    background: linear-gradient(#0006, #0009), url(../assets/img/beth-smith.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.characters-gallery-section__characters-item:nth-child(5) {
+    background: linear-gradient(#0006, #0009), url(../assets/img/evil-morty.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.characters-gallery-section__characters-item:nth-child(6) {
+    background: linear-gradient(#0006, #0009), url(../assets/img/pickle-rick.jpeg);
+    background-position: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.characters-gallery-section__characters-item a {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+/* characters Gallery Section */
+
+
+/* Home */
+
 /* Main Section */
 
 .main-section {
@@ -386,6 +547,20 @@ footer {
     .show-cards-text::after {
         content: " - - - - - ";
     }
+
+    .introduction-section {
+        
+    }
+
+    .characteristics-section__item {
+        width: 25rem;
+    }
+
+    .characters-gallery-section__characters {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-template-rows: repeat(3, 10rem);
+        justify-content: center;
+    }
 }
 
 @media only screen and (width > 890px) {
@@ -432,6 +607,22 @@ footer {
     .show-cards-text::before,
     .show-cards-text::after {
         content: " - - - - - - - ";
+    }
+
+    .characteristics-section {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .characteristics-section__item {
+        width: 25rem;
+    }
+
+    .characters-gallery-section__characters {
+        grid-template-columns: repeat(3, minmax(300px, 500px));
+        grid-template-rows: repeat(2, 10rem);
+        justify-content: center;
     }
 }
 
