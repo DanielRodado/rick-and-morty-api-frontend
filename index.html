@@ -3,12 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>API</title>
+        <title>Home</title>
         <link rel="shortcut icon" href="./assets/img/icon-rick-sanchez.png" type="image/x-icon">
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
         <link rel="stylesheet" href="./css/style.css" />
         <link rel="stylesheet" href="./css/card.css" />
         <link rel="stylesheet" href="./css/loader.css" />
@@ -19,69 +16,57 @@
                 <picture class="nav__img" id="pictures">
                 </picture>
                 <ul class="list-items">
-                    <li class="item item-active">Characters</li>
+                    <li class="item"><a href="./assets/pages/characters.html" class="link-item">Characters</a></li>
                     <li class="item"><a href="./assets/pages/locations.html" class="link-item">Locations</a></li>
                     <li class="item"><a href="./assets/pages/episodes.html" class="link-item">Episodes</a></li>
                 </ul>
             </nav>
         </header>
-        <main id="app">
+        <main>
             <section class="title-section">
                 <h1 class="main-title">The Rick and Morty</h1>
-                <h3 class="main-subtitle">Characters</h3>
             </section>
-            <section class="main-section">
-                <div class="loader" v-if="loader">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+            <section class="section introduction-section">
+                <div class="introduction-section__text">
+                    <h2>Explore the Rick and Morty Universe</h2>
+                    <p>Meet all the characters of your favorite series</p>
                 </div>
-                <div class="container-cards" v-else v-cloak>
-                    <article class="card" v-for="character of characters">
-                        <div class="card__header">
-                            <img :src="character.image" :alt="character.name" />
-                        </div>
-                        <div class="card__body">
-                            <div class="card__body-section">
-                                <h2 class="card__body-text">
-                                    {{character.name}}
-                                </h2>
-                                <p class="card__body-status">
-                                    <span
-                                        class="status__icon"
-                                        :class="{'status-alive': character.status === 'Alive', 'status-unknown': character.status === 'unknown', 'status-dead': character.status === 'Dead'}"
-                                    ></span>
-                                    {{character.status}} - {{character.species}}
-                                </p>
-                            </div>
-                            <div class="card__body-section">
-                                <p class="card__body-text-gray">
-                                    Last known location:
-                                </p>
-                                <p v-if="character.location.name !== 'unknown'" class="card__body-location"><a :href=`./assets/pages/residents.html?location=${character.location.url.slice(character.location.url.lastIndexOf("/")).slice(1)}`>{{character.location.name}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
-                                <p v-else class="card__body-location">{{character.location.name}}</p>
-                            </div>
-                            <div class="card__body-section">
-                                <p class="card__body-text-gray">
-                                    First seen in:
-                                </p>
-                                <p class="card__body-episode"><a :href=`./assets/pages/episode.html?episode=${character.episode[0].slice(character.episode[0].lastIndexOf("/")).slice(1)}`>{{character.nameOfEpisode}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
-                            </div>
-                        </div>
-                    </article>
+                <a class="btn-section introduction-section-btn" role="button" href="./assets/pages/characters.html">Start Now</a>
+            </section>
+            <section class="section characteristics-section">
+                <article class="characteristics-section__item">
+                    <i class="bi bi-search"></i>
+                    <div class="characteristics-section__item-text">
+                        <h3 class="characteristics-section__item-title">Easy Search</h3>
+                        <p class="characteristics-section__item-description">Find any character quickly</p>
+                    </div>
+                </article>
+                <article class="characteristics-section__item">
+                    <i class="bi bi-info-circle"></i>
+                    <div class="characteristics-section__item-text">
+                        <h3 class="characteristics-section__item-title">Detailed Information</h3>
+                        <p class="characteristics-section__item-description">Access complete data about each character</p>
+                    </div>
+                </article>
+                <article class="characteristics-section__item">
+                    <i class="bi bi-hand-thumbs-up"></i>
+                    <div class="characteristics-section__item-text">
+                        <h3 class="characteristics-section__item-title">Friendly Interface</h3>
+                        <p class="characteristics-section__item-description">Intuitive design and easy to use</p>
+                    </div>
+                </article>
+            </section>
+            <section class="section characters-gallery-section">
+                <h2 class="section-title">Popular Characters</h2>
+                <div class="characters-gallery-section__characters">
+                    <div class="characters-gallery-section__characters-item"><a href="#">Rick</a></div>
+                    <div class="characters-gallery-section__characters-item"><a href="#">Morty</a></div>
+                    <div class="characters-gallery-section__characters-item"><a href="#">Summer</a></div>
+                    <div class="characters-gallery-section__characters-item"><a href="#">Beth</a></div>
+                    <div class="characters-gallery-section__characters-item"><a href="#">Evil Morty</a></div>
+                    <div class="characters-gallery-section__characters-item"><a href="#">Pickle Rick</a></div>
                 </div>
-                <div class="container-buttons" v-if="!loader" v-cloak>
-                    <button class="btn btn-prev" type="button" :disabled="urlPrev === null" @click="prevPage"></button>
-                    <p class="number-of-page">{{page}}</p>
-                    <button class="btn btn-next" type="button" :disabled="urlNext === null" @click="nextPage"></button>
-                </div>
+                <a class="btn-section characters-gallery-section-btn" role="button" href="./assets/pages/characters.html">View All Characters</a>
             </section>
         </main>
         <footer>
@@ -105,20 +90,7 @@
                 ❮❯ by
                 <span class="footer-span-decorated">Daniel Rodado</span> 2024
             </p>
-            <p class="footer-credits">
-                Page inspired by
-                    <a
-                        class="footer-span-decorated"
-                        href="https://rickandmortyapi.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >The Rick and Morty API</a
-                    >
-            </p>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script type="module" src="./js/picture.js"></script>
-        <script src="./js/script.js"></script>
     </body>
 </html>
