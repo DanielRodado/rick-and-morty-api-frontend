@@ -42,6 +42,15 @@ h2.card__body-text {
     font-weight: 900;
 }
 
+.card__body-text a {
+    color: #fff;
+    transition: color 300ms ease-out;
+}
+
+.card__body-text a:hover {
+    color: var(--select-text-color);
+}
+
 .card__body-status {
     display: flex;
     align-items: center;
@@ -84,7 +93,7 @@ h2.card__body-text {
         .card__body-appearances
     )
     a {
-    transition: color 500ms ease-out;
+    transition: color 300ms ease-out;
     color: #fff;
     text-decoration: none;
 }
@@ -140,11 +149,11 @@ h2.card__body-text {
         width: 50rem;
     }
 
-    .card__header {
+    .card__header--details {
         min-width: 50%;
     }
 
-    .card__body {
+    .card__body--details {
         justify-content: center;
     }
 }
