@@ -76,13 +76,27 @@ h2.card__body-text {
     user-select: none;
 }
 
-:is(.card__body-location, .card__body-number-of-residents, .card__body-number-of-characters, .card__body-episode) a {
+:is(
+        .card__body-location,
+        .card__body-number-of-residents,
+        .card__body-number-of-characters,
+        .card__body-episode,
+        .card__body-appearances
+    )
+    a {
     transition: color 500ms ease-out;
     color: #fff;
     text-decoration: none;
 }
 
-:is(.card__body-location, .card__body-number-of-residents, .card__body-number-of-characters, .card__body-episode) a:hover {
+:is(
+        .card__body-location,
+        .card__body-number-of-residents,
+        .card__body-number-of-characters,
+        .card__body-episode,
+        .card__body-appearances
+    )
+    a:hover {
     color: var(--select-text-color);
 }
 
@@ -92,7 +106,11 @@ h2.card__body-text {
         height: 14.25rem;
         display: flex;
     }
-    
+
+    .card-details {
+        height: fit-content;
+    }
+
     .card--location {
         height: fit-content;
         width: 30.5rem;
@@ -115,5 +133,19 @@ h2.card__body-text {
     h2.card__body-text {
         text-wrap: nowrap;
     }
-    
 }
+
+@media only screen and (width > 890px) {
+    .card-details {
+        width: 50rem;
+    }
+
+    .card__header {
+        min-width: 50%;
+    }
+
+    .card__body {
+        justify-content: center;
+    }
+}
+
