@@ -51,7 +51,7 @@
                         <div class="card__body">
                             <div class="card__body-section">
                                 <h2 class="card__body-text">
-                                    {{character.name}}
+                                    <a :href=`./character.html?character=${character.id}`>{{character.name}}</a>
                                 </h2>
                                 <p class="card__body-status">
                                     <span
