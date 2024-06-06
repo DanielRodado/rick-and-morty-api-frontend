@@ -66,14 +66,14 @@
                                 <p class="card__body-text-gray">
                                     Last known location:
                                 </p>
-                                <p v-if="character.location.name !== 'unknown'" class="card__body-location"><a :href=`./assets/pages/residents.html?location=${character.location.url.slice(character.location.url.lastIndexOf("/")).slice(1)}`>{{character.location.name}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                                <p v-if="character.location.name !== 'unknown'" class="card__body-location"><a :href=`./residents.html?location=${character.location.url.slice(character.location.url.lastIndexOf("/")).slice(1)}`>{{character.location.name}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
                                 <p v-else class="card__body-location">{{character.location.name}}</p>
                             </div>
                             <div class="card__body-section">
                                 <p class="card__body-text-gray">
                                     First seen in:
                                 </p>
-                                <p class="card__body-episode"><a :href=`./assets/pages/episode.html?episode=${character.episode[0].slice(character.episode[0].lastIndexOf("/")).slice(1)}`>{{character.nameOfEpisode}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
+                                <p class="card__body-episode"><a :href=`./episode.html?episode=${character.episode[0].slice(character.episode[0].lastIndexOf("/")).slice(1)}`>{{character.nameOfEpisode}} <i class="bi bi-arrow-up-right-circle"></i></a></p>
                             </div>
                         </div>
                     </article>
