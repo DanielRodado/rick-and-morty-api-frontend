@@ -5,6 +5,6 @@ import { randomNumber, printImg } from "./methods.js";
 
 const $containerImg = document.getElementById("pictures");
 
-const InfoImages = [rick, morty];
+const infoImages = [rick, morty];
 
-printImg($containerImg, InfoImages[randomNumber()]);
+printImg($containerImg, infoImages[randomNumber()]);
