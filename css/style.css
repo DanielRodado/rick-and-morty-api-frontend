@@ -223,57 +223,37 @@ a {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .characters-gallery-section__characters-item a {
     min-width: 100%;
     height: 100%;
-    display: grid;
-    place-content: center;
-}
-
-.characters-gallery-section__characters-item:first-child {
-    background: linear-gradient(#0006, #0009), url(../assets/img/rick.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.characters-gallery-section__characters-item:nth-child(2) {
-    background: linear-gradient(#0006, #0009), url(../assets/img/morty.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.characters-gallery-section__characters-item:nth-child(3) {
-    background: linear-gradient(#0006, #0009), url(../assets/img/summer-smith.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.characters-gallery-section__characters-item:nth-child(4) {
-    background: linear-gradient(#0006, #0009), url(../assets/img/beth-smith.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.characters-gallery-section__characters-item:nth-child(5) {
-    background: linear-gradient(#0006, #0009), url(../assets/img/evil-morty.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.characters-gallery-section__characters-item:nth-child(6) {
-    background: linear-gradient(#0006, #0009), url(../assets/img/pickle-rick.jpeg);
-    background-position: start;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .characters-gallery-section__characters-item a {
     color: #fff;
     font-weight: 800;
     font-size: 1.5rem;
+}
+
+.characters-gallery-section__characters-item a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.characters-gallery-section__characters-item .item-shadow {
+    background-color: #0006;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    place-content: center;
+    transition: transform 500ms;
 }
 
 /* characters Gallery Section */
@@ -640,6 +620,10 @@ footer {
         grid-template-columns: repeat(3, minmax(250px, 1fr));
         grid-template-rows: repeat(2, 12rem);
         justify-content: center;
+    }
+
+    .characters-gallery-section__characters-item a:hover > .item-shadow {
+        transform: translateY(100%);
     }
 
     .section-title {
