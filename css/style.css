@@ -27,6 +27,25 @@ a {
     text-decoration: none;
 }
 
+#scrollButton {
+    position: fixed;
+    bottom: -12.5rem;
+    right: 1.25rem;
+    padding: 10px 1.25rem;
+    background-color: var(--select-text-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: bottom 0.5s ease-in-out;
+    z-index: 999;
+}
+
+#scrollButton.show {
+    bottom: 1.25rem;
+
+}
+
 /* Header*/
 
 .nav {
@@ -547,6 +566,11 @@ footer {
 }
 
 @media only screen and (width > 890px) {
+
+    #scrollButton {
+        font-size: 1.1rem;
+    }
+
     .list-items {
         gap: 2.5rem;
     }
