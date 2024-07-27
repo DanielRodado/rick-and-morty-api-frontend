@@ -31,4 +31,12 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 	}
+
+	body {
+		height: 100dvh;
+	}
+
+	::selection {
+		@apply text-warning bg-primary
+	}
 </style>
