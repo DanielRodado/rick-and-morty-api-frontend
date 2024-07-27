@@ -5,8 +5,14 @@ interface Props {
 }
 
 const { src, title } = Astro.props;
+const path = Astro.url.pathname;
 ---
 
-<li class="text-secondary font-bold transition ease-in-out hover:text-warning sm:text-lg">
+<li class:list={[
+    "text-secondary font-bold transition ease-in-out duration-300 hover:text-warning sm:text-lg",
+    {
+        "text-warning": path.includes(title.toLowerCase())
+    }
+]}>
     <a href={src}>{title}</a>
 </li>
