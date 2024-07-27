@@ -1,16 +1,85 @@
 ---
 import BtnMain from "../components/Main/BtnMain.astro";
+import CardInfo from "../components/Main/CardInfo.astro";
 import SectionMain from "../components/Main/SectionMain.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Home"> 
+<Layout title="Home">
     <SectionMain />
-    <section class="bg-primary text-white p-6 mt-10 flex flex-col justify-center items-center gap-[0.8rem] mg:min-h-56">
+    <section
+        class="bg-primary text-white mt-10 flex flex-col justify-center items-center gap-[0.8rem] mg:min-h-56"
+    >
         <div class="text-center text-pretty mg:mb-4">
-            <h2 class="text-xl font-bold mb-[0.4rem] sm:text-2xl mg:text-3xl">Explore the Rick and Morty Universe</h2>
-            <p class="text-base sm:text-lg mg:text-xl">Meet all the characters of your favorite series</p>
+            <h2 class="text-xl font-bold mb-[0.4rem] sm:text-2xl mg:text-3xl">
+                Explore the Rick and Morty Universe
+            </h2>
+            <p class="text-base sm:text-lg mg:text-xl">
+                Meet all the characters of your favorite series
+            </p>
         </div>
-        <BtnMain src="/characters" text="Start Now"/>
+        <BtnMain src="/characters" text="Start Now" />
+    </section>
+    <section
+        class=" flex flex-col items-center gap-4 mg:flex-row mg:flex-wrap mg:gap-0 mg:justify-center 2xl:justify-between lg:mx-auto"
+    >
+        <h2 class="hidden">Section Info</h2>
+        <CardInfo title="Easy Search" text="Find any character quickly">
+            <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path
+                    d="M21 21l-6 -6"></path></svg
+            >
+        </CardInfo>
+        <CardInfo
+            title="Detailed Information"
+            text="Access complete data about each character"
+        >
+            <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path
+                    d="M12 9h.01"></path><path d="M11 12h1v4h1"></path></svg
+            >
+        </CardInfo>
+        <CardInfo
+            title="Friendly Interface"
+            text="Intuitive design and easy to use"
+        >
+            <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"
+                ></path></svg
+            >
+        </CardInfo>
     </section>
 </Layout>
+
+<style>
+    section {
+        padding: 1.5rem;
+    }
+</style>

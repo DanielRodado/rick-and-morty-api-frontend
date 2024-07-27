@@ -1,0 +1,24 @@
+---
+interface Props {
+    title: string;
+    text: string;
+}
+
+const { title, text } = Astro.props;
+---
+
+<article
+    class="w-full text-white bg-primary p-4 rounded-md min-h-36 flex flex-col items-center justify-around sm:w-[25rem] mg:min-h-40 mg:m-[0.7rem]"
+>
+    <slot />
+    <div class="text-center">
+        <h3 class="text-lg font-bold mg:text-[1.404rem]">{title}</h3>
+        <p class="text-base mg:text-[1.2rem]">{text}</p>
+    </div>
+</article>
+
+<style>
+    article {
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
+</style>
