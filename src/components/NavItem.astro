@@ -1,0 +1,12 @@
+---
+interface Props {
+    src: string;
+    title: string;
+}
+
+const { src, title } = Astro.props;
+---
+
+<li class="text-secondary font-bold transition ease-in-out hover:text-warning sm:text-lg">
+    <a href={src}>{title}</a>
+</li>
