@@ -1,0 +1,18 @@
+---
+interface Props {
+    subtitle?: string;
+}
+
+const { subtitle } = Astro.props;
+---
+
+<section class="my-8 px-5 text-center max-w-screen-lg lg:mx-auto">
+    <h1 class="text-secondary font-black text-5xl mg:text-6xl lg:text-[5.625rem]">The Rick and Morty</h1>
+    {
+        subtitle !== undefined
+            ? <h3 class="text-secondary font-black text-xl border-t-2 border-dashed border-[#ccc] mt-3 p-1 text-balance sm:text-2xl mg:text-3xl mg:mt-5 mg:p-2 lg:text-[2.6rem] lg:mt-6 lg:p-3 2xl:mx-auto">
+                    {subtitle}
+              </h3>
+            : ""
+    }
+</section>

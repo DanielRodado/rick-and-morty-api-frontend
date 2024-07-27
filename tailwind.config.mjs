@@ -7,9 +7,14 @@ export default {
             "secondary": "#202329;",
             "warning": "#ff9800",
 			white: "#ffffff",
-			black: "#000000"
+			black: "#000000",
+            transparent: "transparent"
         },
-        extend: {},
+        extend: {
+            screens: {
+                mg: "890px"
+            }
+        },
     },
     plugins: [],
 };

@@ -9,7 +9,7 @@ const path = Astro.url.pathname;
 ---
 
 <li class:list={[
-    "text-secondary font-bold transition ease-in-out duration-300 hover:text-warning sm:text-lg",
+    "text-secondary text-base font-bold transition ease-in-out duration-300 hover:text-warning sm:text-lg mg:text-xl",
     {
         "text-warning": path.includes(title.toLowerCase())
     }

@@ -1,6 +1,16 @@
 ---
-import SectionMain from "../components/SectionMain.astro";
+import BtnMain from "../components/Main/BtnMain.astro";
+import SectionMain from "../components/Main/SectionMain.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Home"> <SectionMain /></Layout>
+<Layout title="Home"> 
+    <SectionMain />
+    <section class="bg-primary text-white p-6 flex flex-col justify-center items-center gap-[0.8rem] md:min-h-56">
+        <div class="text-center text-pretty mb-4">
+            <h2 class="text-xl font-bold mb-2 sm:text-2xl mg:text-3xl">Explore the Rick and Morty Universe</h2>
+            <p class="text-base sm:text-lg md:text-xl">Meet all the characters of your favorite series</p>
+        </div>
+        <BtnMain src="/characters" text="Start Now"/>
+    </section>
+</Layout>
