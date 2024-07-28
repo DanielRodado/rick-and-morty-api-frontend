@@ -6,6 +6,7 @@ export default {
             "primary": "#272b33;",
             "secondary": "#202329;",
             "warning": "#ff9800",
+            "gray": "#9e9d9e",
 			white: "#ffffff",
 			black: "#000000",
             transparent: "transparent"
@@ -13,7 +14,7 @@ export default {
         extend: {
             screens: {
                 mg: "890px"
-            }
+            },
         },
     },
     plugins: [],
